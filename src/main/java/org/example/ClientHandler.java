@@ -13,7 +13,7 @@ public class ClientHandler implements Runnable {
     Socket clientSocket;
     BufferedReader in;
     PrintWriter out;
-    Frase f = null;
+    FraseResult f = null;
     ClientHandler (Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
@@ -57,7 +57,7 @@ public class ClientHandler implements Runnable {
             int paorle =0;
             try {
                     System.out.println(s2);
-                    f = new Frase(lettere,parole, s2);
+                    f = new FraseResult(new Frase(lettere,parole, s2));
                     System.out.println(gson.toJson(f));
             } catch (NullPointerException e) {
                 System.out.println("Client: " + clientSocket.getLocalAddress() + " disconnected from the server");
